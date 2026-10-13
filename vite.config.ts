@@ -5,6 +5,8 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // GitHub Pages serves this project site from /<repo>/ — keep base in sync.
+    base: '/amostragem-por-cotas/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
