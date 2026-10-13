@@ -24,70 +24,70 @@ export const SlideTse2026Case: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-6 py-2 sm:py-3 space-y-3">
+    <div className="w-full max-w-[1750px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 py-3 lg:py-6 space-y-6 min-h-[calc(100vh-8.5rem)] flex flex-col justify-between">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="border-b border-white/10 pb-2.5 flex flex-col md:flex-row md:items-end justify-between gap-2"
+        className="border-b border-white/10 pb-3 flex flex-col md:flex-row md:items-end justify-between gap-3"
       >
         <div>
-          <div className="flex items-center gap-2 text-[11px] font-mono text-[#d4af37] uppercase tracking-[0.2em]">
+          <div className="flex items-center gap-2 text-xs sm:text-sm font-mono text-[#d4af37] uppercase tracking-[0.2em] font-semibold">
             <span>Seção 07.1</span>
             <span className="text-white/20">/</span>
             <span>Estudo de Caso Real</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-editorial-serif font-bold text-white mt-1">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-editorial-serif font-bold text-white mt-1.5">
             <TypewriterText text="Consolidação dos Levantamentos de 2º Turno (Outubro 2026)" speed={22} delay={100} />
           </h2>
         </div>
-        <div className="text-xs font-mono text-white/50 tracking-wider">
+        <div className="text-xs sm:text-sm font-mono text-white/50 tracking-wider">
           MÓDULO V · CENÁRIO PRESIDENCIAL & MODOS DE COLETA
         </div>
       </motion.div>
 
-      {/* Real Polls Comparison Table (all 5 methodologies displayed simultaneously) */}
+      {/* Real Polls Comparison Table */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45 }}
-        className="overflow-x-auto rounded-xl border border-white/10 shadow-xl"
+        className="overflow-x-auto rounded-2xl border border-white/10 shadow-2xl"
       >
-        <table className="w-full text-left text-xs">
-          <thead className="bg-[#15171c] text-white/90 border-b border-white/10 font-mono uppercase text-[10px] tracking-wider">
+        <table className="w-full text-left text-base sm:text-lg">
+          <thead className="bg-[#15171c] text-white/90 border-b border-white/10 font-mono uppercase text-xs sm:text-sm tracking-wider">
             <tr>
-              <th className="py-2 px-3">Instituto</th>
-              <th className="py-2 px-3">Data</th>
-              <th className="py-2 px-3">Modo de Coleta</th>
-              <th className="py-2 px-3">Amostra (n)</th>
-              <th className="py-2 px-3 text-blue-300">F. Bolsonaro</th>
-              <th className="py-2 px-3 text-red-300">Lula</th>
-              <th className="py-2 px-3 text-right">Diagnóstico Metodológico</th>
+              <th className="py-3.5 px-4">Instituto</th>
+              <th className="py-3.5 px-4">Data</th>
+              <th className="py-3.5 px-4">Modo de Coleta</th>
+              <th className="py-3.5 px-4">Amostra (n)</th>
+              <th className="py-3.5 px-4 text-blue-300">F. Bolsonaro</th>
+              <th className="py-3.5 px-4 text-red-300">Lula</th>
+              <th className="py-3.5 px-4 text-right">Diagnóstico</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/5 bg-[#0f1013]/60 font-mono text-white/80">
+          <tbody className="divide-y divide-white/10 bg-[#0f1013]/90 font-mono text-white/85">
             {polls.map((poll, idx) => (
               <motion.tr
                 key={poll.institute}
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.25, delay: idx * 0.05 }}
-                className="hover:bg-white/[0.03] transition-colors"
+                className="hover:bg-white/[0.04] transition-colors"
               >
-                <td className="py-2 px-3 font-semibold text-white font-sans">{poll.institute}</td>
-                <td className="py-2 px-3 text-white/50">{poll.date}</td>
-                <td className="py-2 px-3 text-white/80 font-sans flex items-center gap-1.5">
-                  {poll.icon === 'web' && <Globe className="w-3.5 h-3.5 text-blue-400" />}
-                  {poll.icon === 'phone' && <Phone className="w-3.5 h-3.5 text-emerald-400" />}
-                  {poll.icon === 'flow' && <MapPin className="w-3.5 h-3.5 text-[#d4af37]" />}
-                  {poll.icon === 'home' && <Home className="w-3.5 h-3.5 text-amber-400" />}
-                  <span>{poll.method}</span>
+                <td className="py-3 px-4 font-bold text-white font-sans text-base sm:text-lg">{poll.institute}</td>
+                <td className="py-3 px-4 text-white/60 text-sm sm:text-base">{poll.date}</td>
+                <td className="py-3 px-4 text-white/90 font-sans flex items-center gap-2 text-sm sm:text-base">
+                  {poll.icon === 'web' && <Globe className="w-4 h-4 text-blue-400 shrink-0" />}
+                  {poll.icon === 'phone' && <Phone className="w-4 h-4 text-emerald-400 shrink-0" />}
+                  {poll.icon === 'flow' && <MapPin className="w-4 h-4 text-[#d4af37] shrink-0" />}
+                  {poll.icon === 'home' && <Home className="w-4 h-4 text-amber-400 shrink-0" />}
+                  <span className="font-medium">{poll.method}</span>
                 </td>
-                <td className="py-2 px-3 font-bold text-white">{poll.sampleSize.toLocaleString('pt-BR')}</td>
-                <td className="py-2 px-3 font-bold text-blue-300">{poll.bolsonaro.toFixed(1)}%</td>
-                <td className="py-2 px-3 font-bold text-red-300">{poll.lula.toFixed(1)}%</td>
-                <td className="py-2 px-3 text-right font-sans text-xs text-white/60">{poll.diagnosis}</td>
+                <td className="py-3 px-4 font-bold text-white text-base sm:text-lg">{poll.sampleSize.toLocaleString('pt-BR')}</td>
+                <td className="py-3 px-4 font-bold text-blue-300 text-lg sm:text-xl">{poll.bolsonaro.toFixed(1)}%</td>
+                <td className="py-3 px-4 font-bold text-red-300 text-lg sm:text-xl">{poll.lula.toFixed(1)}%</td>
+                <td className="py-3 px-4 text-right font-sans text-sm sm:text-base text-white/70">{poll.diagnosis}</td>
               </motion.tr>
             ))}
           </tbody>
@@ -95,54 +95,54 @@ export const SlideTse2026Case: React.FC = () => {
       </motion.div>
 
       {/* Explanatory Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         <motion.div
-          initial={{ opacity: 0, x: -40, y: 20 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="lg:col-span-6 p-3.5 bg-[#121418] border border-white/10 rounded-xl space-y-2 shadow-xl"
+          className="lg:col-span-6 p-5 sm:p-6 bg-[#121418] border border-white/10 rounded-2xl space-y-4 shadow-xl flex flex-col justify-between"
         >
-          <span className="text-[10px] font-mono uppercase text-[#d4af37] block">
-            Por que Divergem se Todos Usam Cotas?
+          <span className="text-sm sm:text-base font-mono uppercase text-[#d4af37] font-bold block">
+            Por que os Institutos Divergem se Todos Usam Cotas?
           </span>
-          <div className="space-y-1.5 text-xs text-white/70">
-            <div className="p-2 bg-white/[0.02] border border-white/10 rounded-lg">
-              <strong className="text-white block font-sans text-[11px]">Web Randomizado (AtlasIntel):</strong>
-              <span className="text-white/60 text-[11px]">Captura eleitores hiperconectados; maior taxa de resposta de classes urbanas.</span>
+          <div className="space-y-3 text-sm sm:text-base text-white/80">
+            <div className="p-3.5 bg-white/[0.03] border border-white/10 rounded-xl">
+              <strong className="text-white block font-sans text-base">Web Randomizado (AtlasIntel):</strong>
+              <span className="text-white/70">Captura eleitorado hiperconectado e de classe média urbana.</span>
             </div>
-            <div className="p-2 bg-white/[0.02] border border-white/10 rounded-lg">
-              <strong className="text-white block font-sans text-[11px]">Presencial Ponto de Fluxo (Datafolha):</strong>
-              <span className="text-white/60 text-[11px]">Subcaptura idosos e vulneráveis reclusos; favorece transeuntes economicamente ativos.</span>
+            <div className="p-3.5 bg-white/[0.03] border border-white/10 rounded-xl">
+              <strong className="text-white block font-sans text-base">Presencial em Fluxo (Datafolha):</strong>
+              <span className="text-white/70">Capta a circulação urbana em grandes centros comerciais e terminais.</span>
             </div>
-            <div className="p-2 bg-white/[0.02] border border-white/10 rounded-lg">
-              <strong className="text-white block font-sans text-[11px]">Presencial Domiciliar (Vox Brasil):</strong>
-              <span className="text-white/60 text-[11px]">Atinge melhor beneficiários sociais em casa durante o dia útil.</span>
+            <div className="p-3.5 bg-white/[0.03] border border-white/10 rounded-xl">
+              <strong className="text-white block font-sans text-base">Presencial Domiciliar (Vox Brasil):</strong>
+              <span className="text-white/70">Acessa diretamente eleitores de menor renda e idosos reclusos em seus lares.</span>
             </div>
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 40, y: 20 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="lg:col-span-6 p-3.5 bg-[#121418] border border-white/10 rounded-xl space-y-2 shadow-xl"
+          className="lg:col-span-6 p-5 sm:p-6 bg-[#121418] border border-white/10 rounded-2xl space-y-4 shadow-xl flex flex-col justify-between"
         >
-          <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 uppercase">
-            <ShieldCheck className="w-3.5 h-3.5" />
+          <div className="flex items-center gap-2.5 text-sm sm:text-base font-mono text-emerald-400 uppercase font-bold">
+            <ShieldCheck className="w-5 h-5" />
             <span>Exigências Legais · Resolução TSE nº 23.600</span>
           </div>
-          <div className="space-y-1.5 text-xs text-white/70">
-            <div className="p-2 bg-white/[0.02] border border-white/10 rounded-lg">
-              <strong className="text-white block font-sans text-[11px]">Registro Prévio no PesqEle:</strong>
-              <span className="text-white/60 text-[11px]">Obrigatório cadastrar a pesquisa com 5 dias úteis de antecedência à divulgação pública.</span>
+          <div className="space-y-3 text-sm sm:text-base text-white/80">
+            <div className="p-3.5 bg-white/[0.03] border border-white/10 rounded-xl">
+              <strong className="text-white block font-sans text-base">Registro Prévio no PesqEle:</strong>
+              <span className="text-white/70">Cadastramento obrigatório 5 dias antes de qualquer divulgação pública.</span>
             </div>
-            <div className="p-2 bg-white/[0.02] border border-white/10 rounded-lg">
-              <strong className="text-white block font-sans text-[11px]">Publicização da Matriz de Cotas:</strong>
-              <span className="text-white/60 text-[11px]">Exige o detalhamento de cada variável de controle (sexo, idade, instrução, renda e município).</span>
+            <div className="p-3.5 bg-white/[0.03] border border-white/10 rounded-xl">
+              <strong className="text-white block font-sans text-base">Publicização da Matriz de Cotas:</strong>
+              <span className="text-white/70">Detalhamento compulsório de sexo, idade, instrução, renda e município.</span>
             </div>
-            <div className="p-2 bg-white/[0.02] border border-white/10 rounded-lg">
-              <strong className="text-white block font-sans text-[11px]">Aviso Metodológico de Não Aleatoriedade:</strong>
-              <span className="text-white/60 text-[11px]">Pesquisas sem amostragem probabilística de endereço devem explicitar seu método em nota.</span>
+            <div className="p-3.5 bg-white/[0.03] border border-white/10 rounded-xl">
+              <strong className="text-white block font-sans text-base">Nota Metodológica Obrigatória:</strong>
+              <span className="text-white/70">Transparência explícita sobre a técnica de seleção não probabilística.</span>
             </div>
           </div>
         </motion.div>

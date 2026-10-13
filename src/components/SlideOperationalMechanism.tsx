@@ -73,59 +73,61 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
     switch (stepIndex) {
       case 0:
         return (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
-            <div className="lg:col-span-7 space-y-3.5">
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
-                A investigação inicia-se com o <strong>levantamento rigoroso das distribuições populacionais de controle</strong> a partir das bases censitárias oficiais e contemporâneas do país (Censo Demográfico do <strong>IBGE</strong> e o Cadastro Nacional de Eleitores do <strong>TSE 2026</strong>).
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-1">
+            <div className="lg:col-span-7 space-y-4">
+              <p className="text-base sm:text-lg lg:text-xl text-white/95 leading-relaxed font-light">
+                A investigação inicia-se com o <strong>levantamento das distribuições populacionais</strong> a partir das bases censitárias oficiais do país: <strong>IBGE</strong> (Censo Demográfico) e <strong>TSE 2026</strong> (Cadastro Eleitoral).
               </p>
 
-              <div className="p-3 bg-white/[0.02] border border-white/10 rounded-lg space-y-2">
-                <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest block font-bold">
-                  Formulação da Partição Populacional:
+              <div className="p-4 bg-white/[0.03] border border-white/10 rounded-xl space-y-2.5">
+                <span className="text-xs sm:text-sm font-mono text-emerald-400 uppercase tracking-widest block font-bold">
+                  Partição Populacional & Pesos Paramétricos:
                 </span>
-                <MathView math="N = \sum_{h=1}^H N_h \quad \text{e} \quad W_h = \frac{N_h}{N}, \quad \text{com} \quad \sum_{h=1}^H W_h = 1" />
-                <p className="text-[11px] text-white/70 leading-relaxed font-light pt-1 border-t border-white/5">
-                  Onde <strong className="text-white">N</strong> é o universo censitário (156,4 milhões de eleitores), <strong className="text-white">N_h</strong> é a contagem exata no estrato <strong className="text-white">h</strong>, e <strong className="text-white">W_h</strong> é a proporção paramétrica inviolável.
+                <div className="py-2 text-center sm:text-left">
+                  <MathView math="N = \sum_{h=1}^H N_h \quad \text{e} \quad W_h = \frac{N_h}{N}, \quad \text{com} \quad \sum_{h=1}^H W_h = 1" />
+                </div>
+                <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light pt-2 border-t border-white/5">
+                  <strong className="text-white">N:</strong> Universo censitário (156,4 milhões de eleitores) · <strong className="text-white">W_h:</strong> Proporção inviolável do estrato <strong className="text-white">h</strong>.
                 </p>
               </div>
 
-              <div className="p-3 bg-black/40 border border-white/5 rounded-lg space-y-1.5">
-                <span className="text-[10px] font-mono text-amber-300 block font-semibold">
+              <div className="p-4 bg-black/40 border border-white/10 rounded-xl space-y-1.5">
+                <span className="text-xs sm:text-sm font-mono text-amber-300 block font-bold">
                   Regra Inviolável de Gabarito:
                 </span>
-                <p className="text-[11px] text-white/80 leading-snug font-light">
-                  O pesquisador e o instituto <em>não arbitram proporções</em> ao seu arbítrio. O plano é ancorado na verdade-terrena censitária mais recente, sem permitir distorções estruturais prévias.
+                <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
+                  O pesquisador <em>não inventa percentuais</em>. O gabarito demográfico é rigorosamente determinado pelos dados públicos oficiais.
                 </p>
               </div>
             </div>
 
-            <div className="lg:col-span-5 bg-white/[0.02] border border-white/10 rounded-xl p-4 flex flex-col justify-between space-y-3">
-              <div className="flex items-center justify-between border-b border-white/5 pb-2">
-                <span className="text-xs font-mono font-semibold text-white">Variáveis de Controle Oficiais</span>
-                <span className="text-[10px] font-mono text-emerald-400">IBGE & TSE 2026</span>
+            <div className="lg:col-span-5 bg-white/[0.03] border border-white/10 rounded-xl p-5 flex flex-col justify-between space-y-4">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                <span className="text-sm sm:text-base font-mono font-bold text-white">Variáveis de Controle Oficiais</span>
+                <span className="text-xs font-mono text-emerald-400 font-semibold">IBGE & TSE 2026</span>
               </div>
 
-              <div className="space-y-2 text-xs">
-                <div className="p-2 rounded bg-black/30 border border-white/5 flex items-center justify-between">
-                  <span className="text-white/80">1. Sexo Biológico / Gênero</span>
-                  <span className="font-mono text-emerald-400">52,5% Fem / 47,5% Masc</span>
+              <div className="space-y-2.5 text-xs sm:text-sm">
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
+                  <span className="text-white/80">1. Sexo / Gênero</span>
+                  <span className="font-mono text-emerald-400 font-bold">52,5% Fem / 47,5% Masc</span>
                 </div>
-                <div className="p-2 rounded bg-black/30 border border-white/5 flex items-center justify-between">
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
                   <span className="text-white/80">2. Faixas Etárias (16-34, 35-59, 60+)</span>
-                  <span className="font-mono text-sky-400">TSE 2026 / PNAD Contínua</span>
+                  <span className="font-mono text-sky-400 font-bold">TSE 2026 / PNAD Contínua</span>
                 </div>
-                <div className="p-2 rounded bg-black/30 border border-white/5 flex items-center justify-between">
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
                   <span className="text-white/80">3. Nível de Escolaridade</span>
-                  <span className="font-mono text-purple-400">Fund. / Médio / Superior</span>
+                  <span className="font-mono text-purple-400 font-bold">Fund. / Médio / Superior</span>
                 </div>
-                <div className="p-2 rounded bg-black/30 border border-white/5 flex items-center justify-between">
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
                   <span className="text-white/80">4. Macrorregiões Geográficas</span>
-                  <span className="font-mono text-amber-400">SE (43%), NE (27%), S, CO, N</span>
+                  <span className="font-mono text-amber-400 font-bold">SE (43%), NE (27%), S, CO, N</span>
                 </div>
               </div>
 
-              <div className="p-2.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[11px] text-emerald-200">
-                <strong>Objetivo Desta Etapa:</strong> Mapear todas as <strong className="text-white">H células demográficas</strong> da matriz para espelhar perfeitamente o eleitorado nacional.
+              <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs sm:text-sm text-emerald-200">
+                <strong>Objetivo:</strong> Mapear todas as <strong className="text-white">H células</strong> da matriz para espelhar a sociedade nacional.
               </div>
             </div>
           </div>
@@ -133,64 +135,66 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
 
       case 1:
         return (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
-            <div className="lg:col-span-7 space-y-3.5">
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
-                A partir da matriz de pesos demográficos <strong className="text-amber-300">W_h</strong> e do tamanho amostral pré-estabelecido (<strong className="text-white">n = 1.000 ou 2.000</strong>), calcula-se a <strong>cota numérica exata (n_h)</strong> para cada célula disjunta.
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-1">
+            <div className="lg:col-span-7 space-y-4">
+              <p className="text-base sm:text-lg lg:text-xl text-white/95 leading-relaxed font-light">
+                Com base nos pesos <strong className="text-amber-300">W_h</strong> e no tamanho da amostra (<strong className="text-white">n = 1.000</strong>), calcula-se a <strong>cota numérica obrigatória (n_h)</strong> para cada estrato demográfico.
               </p>
 
-              <div className="p-3 bg-white/[0.02] border border-white/10 rounded-lg space-y-2">
-                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block font-bold">
+              <div className="p-4 bg-white/[0.03] border border-white/10 rounded-xl space-y-2.5">
+                <span className="text-xs sm:text-sm font-mono text-amber-400 uppercase tracking-widest block font-bold">
                   Cálculo Algébrico das Metas por Célula:
                 </span>
-                <MathView math="n_h = n \cdot W_h = n \cdot \left(\frac{N_h}{N}\right), \quad \text{com} \quad \sum_{h=1}^H n_h = n" />
-                <p className="text-[11px] text-white/70 leading-relaxed font-light pt-1 border-t border-white/5">
-                  As cotas são <strong>números inteiros obrigatórios</strong>. Se o estrato h possui peso censitário de 24%, a equipe de campo deve coletar rigorosamente <strong className="text-white">240 entrevistas</strong> naquele estrato.
+                <div className="py-2 text-center sm:text-left">
+                  <MathView math="n_h = n \cdot W_h = n \cdot \left(\frac{N_h}{N}\right), \quad \text{com} \quad \sum_{h=1}^H n_h = n" />
+                </div>
+                <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light pt-2 border-t border-white/5">
+                  As cotas são <strong>números inteiros obrigatórios</strong>. Se o estrato tem peso de 24%, a equipe deve coletar rigorosamente <strong className="text-amber-300 font-bold">240 questionários</strong>.
                 </p>
               </div>
 
-              <div className="p-3 bg-black/40 border border-white/5 rounded-lg space-y-1.5">
-                <span className="text-[10px] font-mono text-amber-300 block font-semibold">
-                  Princípio da Inexistência de Lacunas:
+              <div className="p-4 bg-black/40 border border-white/10 rounded-xl space-y-1.5">
+                <span className="text-xs sm:text-sm font-mono text-amber-300 block font-bold">
+                  Inexistência de Lacunas:
                 </span>
-                <p className="text-[11px] text-white/80 leading-snug font-light">
-                  As categorias demográficas são construídas para serem <strong>mutuamente exclusivas e coletivamente exaustivas</strong>: nenhum respondente pode pertencer a mais de uma célula ou ficar fora de enquadramento.
+                <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
+                  As células são <strong>mutuamente exclusivas e coletivamente exaustivas</strong>: nenhum respondente pode pertencer a mais de uma célula ou ficar fora da matriz.
                 </p>
               </div>
             </div>
 
-            <div className="lg:col-span-5 bg-white/[0.02] border border-white/10 rounded-xl p-4 flex flex-col justify-between space-y-3">
-              <div className="flex items-center justify-between border-b border-white/5 pb-2">
-                <span className="text-xs font-mono font-semibold text-white">Exemplo de Alocação (n = 1.000)</span>
-                <span className="text-[10px] font-mono text-amber-400">Fechamento Estrito</span>
+            <div className="lg:col-span-5 bg-white/[0.03] border border-white/10 rounded-xl p-5 flex flex-col justify-between space-y-4">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                <span className="text-sm sm:text-base font-mono font-bold text-white">Exemplo de Alocação (n = 1.000)</span>
+                <span className="text-xs font-mono text-amber-400 font-semibold">Fechamento Estrito</span>
               </div>
 
-              <div className="space-y-1.5 font-mono text-xs">
-                <div className="p-2 rounded bg-black/30 border border-white/5 flex items-center justify-between">
+              <div className="space-y-2 font-mono text-xs sm:text-sm">
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
                   <span className="text-white/80">Mulheres Jovens (16-34)</span>
                   <span className="text-emerald-400 font-bold">W₁ = 24,0% → n₁ = 240</span>
                 </div>
-                <div className="p-2 rounded bg-black/30 border border-white/5 flex items-center justify-between">
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
                   <span className="text-white/80">Mulheres Adultas (35-59)</span>
                   <span className="text-emerald-400 font-bold">W₂ = 20,5% → n₂ = 205</span>
                 </div>
-                <div className="p-2 rounded bg-black/30 border border-white/5 flex items-center justify-between">
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
                   <span className="text-white/80">Mulheres Idosas (60+)</span>
                   <span className="text-emerald-400 font-bold">W₃ = 8,0% → n₃ = 80</span>
                 </div>
-                <div className="p-2 rounded bg-black/30 border border-white/5 flex items-center justify-between">
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
                   <span className="text-white/80">Homens Jovens (16-34)</span>
                   <span className="text-sky-400 font-bold">W₄ = 22,0% → n₄ = 220</span>
                 </div>
-                <div className="p-2 rounded bg-black/30 border border-white/5 flex items-center justify-between">
-                  <span className="text-white/80">Demais Estratos Masculinos</span>
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
+                  <span className="text-white/80">Demais Estratos</span>
                   <span className="text-sky-400 font-bold">W₅ = 25,5% → n₅ = 255</span>
                 </div>
               </div>
 
-              <div className="p-2 rounded bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-200 flex items-center justify-between">
-                <span><strong>Soma Total das Cotas:</strong></span>
-                <span className="font-mono font-bold text-white">n = 1.000 (100,0%)</span>
+              <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs sm:text-sm text-amber-200 flex items-center justify-between font-bold">
+                <span>Total Amostral Planejado:</span>
+                <span className="font-mono text-white text-base">n = 1.000 (100%)</span>
               </div>
             </div>
           </div>
@@ -198,82 +202,71 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
 
       case 2:
         return (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
-            <div className="lg:col-span-7 space-y-3.5">
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
-                Em campo, os entrevistadores atuam em <strong>pontos de grande fluxo de pedestres</strong> (estações de metrô, praças, terminais de ônibus e centros comerciais) ou rotas domiciliares predefinidas.
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-1">
+            <div className="lg:col-span-7 space-y-4">
+              <p className="text-base sm:text-lg lg:text-xl text-white/95 leading-relaxed font-light">
+                Entrevistadores operam em <strong>pontos de grande fluxo de pedestres</strong> (praças, terminais de transporte, centros comerciais) com roteiro de triagem estruturado.
               </p>
 
-              <div className="p-3 bg-white/[0.02] border border-white/10 rounded-lg space-y-2">
-                <span className="text-[10px] font-mono text-sky-400 uppercase tracking-widest block font-bold">
+              <div className="p-4 bg-white/[0.03] border border-white/10 rounded-xl space-y-2.5">
+                <span className="text-xs sm:text-sm font-mono text-sky-400 uppercase tracking-widest block font-bold">
                   O Algoritmo do Filtro Inicial (Screener):
                 </span>
-                <div className="bg-black/50 p-2.5 rounded font-mono text-xs text-white/90 space-y-1">
-                  <div>1. Abordagem: "Olá! Você vota nesta cidade?"</div>
-                  <div>2. Screener: Idade? Sexo? Escolaridade?</div>
-                  <div className="text-sky-300">
-                    3. Se Cota [Sexo × Idade] está <strong className="text-emerald-400">ABERTA</strong> → Aplica questionário eleitoral.
+                <div className="bg-black/60 p-3.5 rounded-xl font-mono text-xs sm:text-sm text-white/90 space-y-1.5 border border-white/5">
+                  <div className="text-white/60">1. Abordagem: "Olá! Você é eleitor nesta cidade?"</div>
+                  <div>2. Screener Demográfico: Idade? Gênero? Escolaridade?</div>
+                  <div className="text-emerald-400 font-bold">
+                    3. Cota [Gênero × Faixa] ABERTA → Aplica questionário completo.
                   </div>
-                  <div className="text-amber-300">
-                    4. Se Cota [Sexo × Idade] está <strong className="text-red-400">SATURADA</strong> → Agradece e aborda outro perfil.
+                  <div className="text-amber-400 font-bold">
+                    4. Cota SATURADA → Agradece e aborda outro perfil pendente.
                   </div>
                 </div>
               </div>
 
-              <div className="p-3 bg-black/40 border border-white/5 rounded-lg space-y-1.5">
-                <span className="text-[10px] font-mono text-sky-300 block font-semibold">
-                  Diferença Crucial Frente ao Sorteio Probabilístico:
+              <div className="p-4 bg-black/40 border border-white/10 rounded-xl space-y-1.5">
+                <span className="text-xs sm:text-sm font-mono text-sky-300 block font-bold">
+                  Diferença Prática do Sorteio:
                 </span>
-                <p className="text-[11px] text-white/80 leading-snug font-light">
-                  O entrevistador <strong>não consulta uma lista nominal de nomes e CPFs</strong>; ele busca ativamente transeuntes elegíveis em tempo real até preencher a cota numérica designada pelo supervisor.
+                <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
+                  Não há lista nominal de CPFs ou domicílios fixos fechados: a triagem busca participantes em trânsito até completar a cota.
                 </p>
               </div>
             </div>
 
-            <div className="lg:col-span-5 bg-white/[0.02] border border-white/10 rounded-xl p-3.5 flex flex-col justify-between space-y-2.5">
-              <div className="flex items-center justify-between border-b border-white/5 pb-1.5">
-                <span className="text-xs font-mono font-semibold text-white">Abordagem CAPI em Espaço Público</span>
-                <span className="text-[10px] font-mono text-sky-400">Coleta Digital</span>
+            <div className="lg:col-span-5 bg-white/[0.03] border border-white/10 rounded-xl p-5 flex flex-col justify-between space-y-4">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                <span className="text-sm sm:text-base font-mono font-bold text-white">Fluxograma de Decisão em Campo</span>
+                <span className="text-xs font-mono text-sky-400 font-semibold">Ponto de Fluxo</span>
               </div>
 
-              {/* Photo of survey interviewer with CAPI tablet in street */}
-              <div className="relative rounded-lg overflow-hidden border border-sky-500/30 group">
-                <img
-                  src="/src/assets/images/field_survey_capi_1791898488751.jpg"
-                  alt="Pesquisadora de opinião aplicando questionário em tablet CAPI em praça pública"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-28 object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
-                  <span className="text-[9px] text-sky-200 font-mono">
-                    Entrevistador em Campo: Tablet com questionário digital CAPI
-                  </span>
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <div className="p-2 rounded-lg bg-black/40 border border-white/5 flex items-start gap-2">
-                  <Users2 className="w-3.5 h-3.5 text-sky-400 mt-0.5 shrink-0" />
+              <div className="space-y-3">
+                <div className="p-3 rounded-xl bg-black/40 border border-white/5 flex items-start gap-3">
+                  <Users2 className="w-5 h-5 text-sky-400 mt-0.5 shrink-0" />
                   <div>
-                    <span className="text-xs font-semibold text-white block">Transeunte Abordado</span>
-                    <span className="text-[10px] text-white/60">Verificação de critérios de elegibilidade</span>
+                    <span className="text-sm font-bold text-white block">Transeunte Abordado</span>
+                    <span className="text-xs text-white/60">Verificação de critérios demográficos</span>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-center text-xs">
-                  <div className="p-1.5 rounded bg-emerald-500/10 border border-emerald-500/30">
-                    <span className="font-mono text-emerald-400 font-bold block text-[11px]">COTA &lt; META</span>
-                    <span className="text-[9px] text-white/80">Aplica Pesquisa Completa</span>
+                <div className="flex justify-center text-white/40">
+                  <ArrowRight className="w-4 h-4 rotate-90" />
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 text-center">
+                  <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+                    <span className="font-mono text-emerald-400 font-bold block text-sm">COTA &lt; META</span>
+                    <span className="text-xs text-white/80 mt-1 block">Aplica Pesquisa (15 min)</span>
                   </div>
-                  <div className="p-1.5 rounded bg-red-500/10 border border-red-500/30">
-                    <span className="font-mono text-red-400 font-bold block text-[11px]">COTA = META</span>
-                    <span className="text-[9px] text-white/80">Dispensa Agradecida</span>
+                  <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30">
+                    <span className="font-mono text-red-400 font-bold block text-sm">COTA = META</span>
+                    <span className="text-xs text-white/80 mt-1 block">Dispensa Agradecida</span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-2 rounded bg-sky-500/10 border border-sky-500/20 text-[10px] text-sky-200">
-                <strong>Vantagem Operacional:</strong> Elimina o custo de procurar indivíduos ausentes em domicílios fechados, garantindo a conclusão rápida do levantamento.
+              <div className="p-3 rounded-lg bg-sky-500/10 border border-sky-500/30 text-xs sm:text-sm text-sky-200">
+                <strong>Vantagem:</strong> Elimina perdas com recusas domiciliares prolongadas, reduzindo o tempo de coleta para menos de 72h.
               </div>
             </div>
           </div>
@@ -282,68 +275,68 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
       case 3:
       default:
         return (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
-            <div className="lg:col-span-7 space-y-3.5">
-              <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
-                Durante a jornada de coleta, cada entrevista é transmitida instantaneamente pelo tablet ou smartphone através de sistemas <strong>CAPI (Computer-Assisted Personal Interviewing)</strong>.
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-1">
+            <div className="lg:col-span-7 space-y-4">
+              <p className="text-base sm:text-lg lg:text-xl text-white/95 leading-relaxed font-light">
+                Cada questionário respondido é transmitido em tempo real via tablets ou smartphones utilizando sistemas <strong>CAPI (Computer-Assisted Personal Interviewing)</strong>.
               </p>
 
-              <div className="p-3 bg-white/[0.02] border border-white/10 rounded-lg space-y-2">
-                <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest block font-bold">
+              <div className="p-4 bg-white/[0.03] border border-white/10 rounded-xl space-y-2.5">
+                <span className="text-xs sm:text-sm font-mono text-purple-400 uppercase tracking-widest block font-bold">
                   Trava Automática de Saturação (Lockout Digital):
                 </span>
-                <div className="p-2.5 bg-black/50 rounded font-mono text-xs space-y-1 text-white/90">
-                  <div className="flex items-center justify-between text-emerald-400">
+                <div className="p-3.5 bg-black/60 rounded-xl font-mono text-xs sm:text-sm space-y-2 text-white/90 border border-white/5">
+                  <div className="flex items-center justify-between text-emerald-400 font-bold">
                     <span>✓ Cota Jovens (16-34): 240 / 240</span>
-                    <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-[10px]">100% SATURADA</span>
+                    <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-xs">100% SATURADA</span>
                   </div>
-                  <div className="flex items-center justify-between text-red-400">
+                  <div className="flex items-center justify-between text-red-400 font-bold">
                     <span>🔒 Status no Tablet: BLOQUEADO</span>
-                    <span className="px-1.5 py-0.5 rounded bg-red-500/20 text-[10px]">TRAVA ATIVA</span>
+                    <span className="px-2 py-0.5 rounded bg-red-500/20 text-xs">TRAVA ATIVA</span>
                   </div>
-                  <div className="text-white/60 text-[10px] pt-1">
-                    O sistema digital rejeita novas respostas nessa célula demográfica e emite alerta ao entrevistador.
+                  <div className="text-white/70 text-xs pt-1 border-t border-white/5">
+                    O aplicativo impede novas inserções nessa célula e força a busca exclusiva de estratos pendentes.
                   </div>
                 </div>
               </div>
 
-              <div className="p-3 bg-black/40 border border-white/5 rounded-lg space-y-1.5">
-                <span className="text-[10px] font-mono text-purple-300 block font-semibold">
-                  Consolidação do Microcosmo Final:
+              <div className="p-4 bg-black/40 border border-white/10 rounded-xl space-y-1.5">
+                <span className="text-xs sm:text-sm font-mono text-purple-300 block font-bold">
+                  Fechamento do Microcosmo:
                 </span>
-                <p className="text-[11px] text-white/80 leading-snug font-light">
-                  O entrevistador passa a concentrar 100% do esforço em captar <strong>perfis residuais difíceis</strong> (ex.: idosos acima de 60 anos ou homens com ensino superior) até que todas as cotas da matriz atinjam exatamente 100%.
+                <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
+                  A equipe passa a caçar <strong>perfis residuais raros</strong> (ex.: idosos 60+ de alta escolaridade) até que todas as cotas atinjam exatamente 100%.
                 </p>
               </div>
             </div>
 
-            <div className="lg:col-span-5 bg-white/[0.02] border border-white/10 rounded-xl p-4 flex flex-col justify-between space-y-3">
-              <div className="flex items-center justify-between border-b border-white/5 pb-2">
-                <span className="text-xs font-mono font-semibold text-white">Painel CAPI do Entrevistador</span>
-                <span className="text-[10px] font-mono text-purple-400">Sincronização 4G/5G</span>
+            <div className="lg:col-span-5 bg-white/[0.03] border border-white/10 rounded-xl p-5 flex flex-col justify-between space-y-4">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                <span className="text-sm sm:text-base font-mono font-bold text-white">Painel CAPI do Entrevistador</span>
+                <span className="text-xs font-mono text-purple-400 font-semibold">Monitoramento 5G</span>
               </div>
 
-              <div className="space-y-2 text-xs font-mono">
-                <div className="p-2 rounded bg-black/30 border border-white/5 flex items-center justify-between">
+              <div className="space-y-2.5 text-xs sm:text-sm font-mono">
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
                   <span className="text-white/80">Mulheres 16-34</span>
-                  <span className="text-emerald-400 flex items-center gap-1 font-bold">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> 240/240
+                  <span className="text-emerald-400 flex items-center gap-1.5 font-bold">
+                    <CheckCircle2 className="w-4 h-4" /> 240/240 (Concluída)
                   </span>
                 </div>
-                <div className="p-2 rounded bg-black/30 border border-white/5 flex items-center justify-between">
+                <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 flex items-center justify-between">
                   <span className="text-white/80">Homens 16-34</span>
-                  <span className="text-emerald-400 flex items-center gap-1 font-bold">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> 220/220
+                  <span className="text-emerald-400 flex items-center gap-1.5 font-bold">
+                    <CheckCircle2 className="w-4 h-4" /> 220/220 (Concluída)
                   </span>
                 </div>
-                <div className="p-2 rounded bg-purple-500/10 border border-purple-500/30 flex items-center justify-between">
+                <div className="p-2.5 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-between">
                   <span className="text-purple-200">Mulheres 60+ (Pendente)</span>
                   <span className="text-amber-400 font-bold">74 / 80 (Faltam 6)</span>
                 </div>
               </div>
 
-              <div className="p-2.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[11px] text-emerald-200">
-                <strong>Conclusão da Coleta:</strong> Quando a última cota fecha, a amostra atinge a representação proporcional exata da sociedade sem necessidade de sorteios nominais caros.
+              <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs sm:text-sm text-emerald-200 font-medium">
+                <strong>Conclusão:</strong> Quando a última cota atinge a meta, a amostra final espelha fielmente a sociedade sem custos de repetição.
               </div>
             </div>
           </div>
@@ -354,12 +347,12 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
   // Continuous Mode: renders all 4 steps vertically
   if (isContinuousMode) {
     return (
-      <div className="w-full max-w-6xl mx-auto px-6 py-4 space-y-6">
-        <div className="border-b border-white/10 pb-3">
-          <div className="text-[11px] font-mono text-[#d4af37] uppercase tracking-[0.2em]">
+      <div className="w-full max-w-[1750px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 py-6 space-y-8">
+        <div className="border-b border-white/10 pb-4">
+          <div className="text-xs sm:text-sm font-mono text-[#d4af37] uppercase tracking-[0.2em] font-semibold">
             Seção 02 / Morfologia da Amostragem
           </div>
-          <h2 className="text-2xl sm:text-3xl font-editorial-serif font-bold text-white mt-1">
+          <h2 className="text-3xl sm:text-4xl font-editorial-serif font-bold text-white mt-1.5">
             Mecanismo Operacional da Coleta: As 4 Etapas Sequenciais
           </h2>
         </div>
@@ -368,17 +361,17 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
           {stepMeta.map((s, idx) => (
             <div
               key={s.num}
-              className="bg-[#121418] border border-white/10 rounded-xl p-5 shadow-xl space-y-4"
+              className="bg-[#121418] border border-white/10 rounded-2xl p-6 shadow-xl space-y-4"
             >
-              <div className="flex items-center gap-2.5 pb-2.5 border-b border-white/10">
-                <div className={`p-1.5 rounded-lg border ${s.accentBg} ${s.accentBorder}`}>
+              <div className="flex items-center gap-3 pb-3 border-b border-white/10">
+                <div className={`p-2 rounded-xl border ${s.accentBg} ${s.accentBorder}`}>
                   {s.icon}
                 </div>
                 <div>
-                  <span className={`text-[10px] font-mono uppercase tracking-widest ${s.accentText} block`}>
+                  <span className="text-xs font-mono uppercase tracking-widest text-[#d4af37] font-semibold">
                     {s.stepLabel}
                   </span>
-                  <h3 className="text-lg font-editorial-serif font-bold text-white">
+                  <h3 className="text-xl font-editorial-serif font-bold text-white">
                     {s.title}
                   </h3>
                 </div>
@@ -395,36 +388,36 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
   const current = stepMeta[activeStep];
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-6 py-2 sm:py-3 space-y-3.5">
+    <div className="w-full max-w-[1750px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 py-3 lg:py-6 space-y-5 min-h-[calc(100vh-8.5rem)] flex flex-col justify-between">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:items-end justify-between gap-2"
+        className="border-b border-white/10 pb-3 flex flex-col sm:flex-row sm:items-end justify-between gap-3"
       >
         <div>
-          <div className="flex items-center gap-2 text-[11px] font-mono text-[#d4af37] uppercase tracking-[0.2em]">
+          <div className="flex items-center gap-2 text-xs sm:text-sm font-mono text-[#d4af37] uppercase tracking-[0.2em] font-semibold">
             <span>Seção 02</span>
             <span className="text-white/20">/</span>
             <span>Morfologia da Amostragem</span>
             <span className="text-white/20">/</span>
             <span>Mecanismo Operacional</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-editorial-serif font-bold text-white mt-1">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-editorial-serif font-bold text-white mt-1.5">
             <TypewriterText text="Mecanismo Operacional da Coleta: As 4 Etapas Sequenciais" speed={22} delay={100} />
           </h2>
         </div>
-        <div className="flex items-center gap-2 text-xs font-mono text-white/50 tracking-wider">
-          <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-amber-300 font-semibold">
+        <div className="flex items-center gap-2 text-xs sm:text-sm font-mono text-white/60 tracking-wider">
+          <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-amber-300 font-bold">
             Etapa {activeStep + 1} de 4
           </span>
-          <span>· CICLO OPERACIONAL COMPLETO</span>
+          <span>· CICLO OPERACIONAL</span>
         </div>
       </motion.div>
 
       {/* 4-Step Horizontal Roadmap / Stepper Indicator */}
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-4 gap-3">
         {stepMeta.map((s, idx) => {
           const isDone = idx < activeStep;
           const isCurrent = idx === activeStep;
@@ -432,18 +425,18 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
           return (
             <div
               key={s.num}
-              className={`p-2 rounded-lg border transition-all flex items-center gap-2 ${
+              className={`p-3 rounded-xl border transition-all flex items-center gap-2.5 ${
                 isCurrent
-                  ? 'bg-white/[0.08] border-[#d4af37] shadow-md shadow-[#d4af37]/10'
+                  ? 'bg-white/[0.08] border-[#d4af37] shadow-lg shadow-[#d4af37]/15'
                   : isDone
                   ? 'bg-white/[0.03] border-emerald-500/30 opacity-80'
                   : 'bg-white/[0.01] border-white/5 opacity-40'
               }`}
             >
               <div
-                className={`w-6 h-6 rounded-full flex items-center justify-center font-mono text-xs font-bold shrink-0 ${
+                className={`w-7 h-7 rounded-full flex items-center justify-center font-mono text-xs sm:text-sm font-bold shrink-0 ${
                   isCurrent
-                    ? 'bg-[#d4af37] text-black shadow-sm'
+                    ? 'bg-[#d4af37] text-black shadow-md'
                     : isDone
                     ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
                     : 'bg-white/10 text-white/40'
@@ -452,13 +445,13 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
                 {isDone ? '✓' : s.num}
               </div>
               <div className="min-w-0 flex-1 hidden sm:block">
-                <span className="block text-[10px] font-mono uppercase text-white/40 leading-none">
+                <span className="block text-xs font-mono uppercase text-white/50 leading-none">
                   {idx === 0 && 'Censo & Pesos'}
                   {idx === 1 && 'Cálculo Paramétrico'}
                   {idx === 2 && 'Filtro Screener'}
                   {idx === 3 && 'Trava Digital'}
                 </span>
-                <span className={`block text-xs font-medium truncate mt-0.5 ${isCurrent ? 'text-white' : 'text-white/60'}`}>
+                <span className={`block text-xs sm:text-sm font-semibold truncate mt-1 ${isCurrent ? 'text-white' : 'text-white/60'}`}>
                   {s.title.split('&')[0].trim()}
                 </span>
               </div>
@@ -475,27 +468,27 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -25 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-[#121418] border border-white/10 rounded-xl p-4 sm:p-6 shadow-2xl relative overflow-hidden"
+          className="bg-[#121418] border border-white/10 rounded-2xl p-5 sm:p-7 shadow-2xl relative overflow-hidden flex-1 flex flex-col justify-between"
         >
           {/* Subtle Accent Glow */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-white/[0.02] rounded-bl-full pointer-events-none" />
 
           {/* Sub-Slide Banner */}
           <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
-            <div className="flex items-center gap-2.5">
-              <div className={`p-1.5 rounded-lg border ${current.accentBg} ${current.accentBorder}`}>
+            <div className="flex items-center gap-3">
+              <div className={`p-2 rounded-xl border ${current.accentBg} ${current.accentBorder}`}>
                 {current.icon}
               </div>
               <div>
-                <span className={`text-[10px] font-mono uppercase tracking-widest ${current.accentText} block`}>
+                <span className={`text-xs font-mono uppercase tracking-widest ${current.accentText} block font-bold`}>
                   {current.stepLabel}
                 </span>
-                <h3 className="text-lg sm:text-xl font-editorial-serif font-bold text-white">
+                <h3 className="text-xl sm:text-2xl font-editorial-serif font-bold text-white">
                   {current.title}
                 </h3>
               </div>
             </div>
-            <span className="text-[11px] font-mono text-white/40 hidden md:block">
+            <span className="text-xs sm:text-sm font-mono text-white/50 hidden md:block">
               {current.subtitle}
             </span>
           </div>
@@ -504,9 +497,9 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
           {renderStepDetails(activeStep)}
 
           {/* Bottom Bar: Remote Passador Status & Golden Rule */}
-          <div className="mt-4 pt-3 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div className="flex items-center gap-2 text-xs text-white/70">
-              <ShieldCheck className="w-4 h-4 text-[#d4af37] shrink-0" />
+          <div className="mt-5 pt-3 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5 text-xs sm:text-sm text-white/80">
+              <ShieldCheck className="w-5 h-5 text-[#d4af37] shrink-0" />
               <span>
                 <strong>Síntese Operacional:</strong>{' '}
                 {activeStep === 0 && 'O Censo fixa os pesos reais que nenhuma pesquisa tem licença para desrespeitar.'}
@@ -516,8 +509,8 @@ export const SlideOperationalMechanism: React.FC<SlideOperationalMechanismProps>
               </span>
             </div>
 
-            <div className="flex items-center gap-2 text-[10px] font-mono text-[#d4af37] bg-[#d4af37]/10 px-2.5 py-1 rounded border border-[#d4af37]/20 shrink-0">
-              <Radio className="w-3 h-3 text-[#d4af37] animate-pulse" />
+            <div className="flex items-center gap-2 text-xs font-mono text-[#d4af37] bg-[#d4af37]/10 px-3 py-1.5 rounded-lg border border-[#d4af37]/20 shrink-0 font-semibold">
+              <Radio className="w-3.5 h-3.5 text-[#d4af37] animate-pulse" />
               <span>
                 {activeStep < 3
                   ? `Passador: Pressione [→] para a Etapa 0${activeStep + 2}`

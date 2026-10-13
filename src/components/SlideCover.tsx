@@ -10,7 +10,7 @@ interface SlideCoverProps {
 
 export const SlideCover: React.FC<SlideCoverProps> = ({ onStart }) => {
   return (
-    <div className="relative w-full max-w-6xl mx-auto px-6 sm:px-10 flex flex-col justify-between py-2 sm:py-4">
+    <div className="relative w-full max-w-[1750px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 flex flex-col justify-between py-4 sm:py-8 min-h-[calc(100vh-8.5rem)]">
       {/* Decorative Editorial Background Elements with subtle float */}
       <motion.div
         animate={{
@@ -18,7 +18,7 @@ export const SlideCover: React.FC<SlideCoverProps> = ({ onStart }) => {
           opacity: [0.05, 0.09, 0.05],
         }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-1/4 -right-16 w-80 h-80 bg-[#d4af37] rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/4 -right-16 w-96 h-96 bg-[#d4af37] rounded-full blur-3xl pointer-events-none"
       />
       <motion.div
         animate={{
@@ -26,7 +26,7 @@ export const SlideCover: React.FC<SlideCoverProps> = ({ onStart }) => {
           opacity: [0.08, 0.14, 0.08],
         }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute bottom-10 -left-16 w-60 h-60 bg-blue-900 rounded-full blur-3xl pointer-events-none"
+        className="absolute bottom-10 -left-16 w-80 h-80 bg-blue-900 rounded-full blur-3xl pointer-events-none"
       />
 
       {/* Top Academic Department Header - Sliding Down */}
@@ -34,169 +34,132 @@ export const SlideCover: React.FC<SlideCoverProps> = ({ onStart }) => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="border-b border-white/10 pb-3 flex flex-col sm:flex-row sm:items-end justify-between gap-2"
+        className="border-b border-white/10 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3"
       >
         <div>
-          <div className="flex items-center gap-2 text-[11px] font-mono tracking-[0.2em] text-[#d4af37] uppercase">
-            <Building2 className="w-3.5 h-3.5 text-[#d4af37] animate-pulse" />
+          <div className="flex items-center gap-2.5 text-xs sm:text-sm font-mono tracking-[0.2em] text-[#d4af37] font-semibold uppercase">
+            <Building2 className="w-4 h-4 text-[#d4af37] animate-pulse" />
             <span>UNIVERSIDADE FEDERAL RURAL DE PERNAMBUCO</span>
           </div>
-          <p className="text-[11px] text-white/50 tracking-wider uppercase mt-0.5">
-            DEPARTAMENTO DE BIOMETRIA E ESTATÍSTICA APLICADA · PROGRAMA DE PÓS-GRADUAÇÃO
+          <p className="text-xs sm:text-sm text-white/60 tracking-wider uppercase mt-1 font-medium">
+            DEPARTAMENTO DE BIOMETRIA E ESTATÍSTICA APLICADA · PÓS-GRADUAÇÃO
           </p>
         </div>
-        <div className="text-left sm:text-right text-[11px] font-mono text-white/40">
-          <span>DISCIPLINA: SISTEMAS DE AMOSTRAGEM EM LEVANTAMENTOS AGRÍCOLAS</span>
+        <div className="text-left sm:text-right text-xs sm:text-sm font-mono text-white/50">
+          <span>SISTEMAS DE AMOSTRAGEM EM LEVANTAMENTOS AGRÍCOLAS</span>
         </div>
       </motion.div>
 
-      {/* Main Hero Section: Title & Philosophy with Typewriter Effect and Editorial Visual */}
-      <div className="py-4 sm:py-5 my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          <div className="lg:col-span-8">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="inline-flex items-center gap-1.5 mb-2"
-            >
-              <Sparkles className="w-3 h-3 text-[#d4af37]" />
-              <span className="text-[11px] uppercase tracking-[0.25em] text-[#d4af37]/90 font-mono">
-                SEMINÁRIO DE PÓS-GRADUAÇÃO
-              </span>
-            </motion.div>
+      {/* Main Hero Section: Title & Philosophy with Typewriter Effect */}
+      <div className="py-6 sm:py-10 my-auto">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="inline-flex items-center gap-2 mb-3"
+        >
+          <Sparkles className="w-4 h-4 text-[#d4af37]" />
+          <span className="text-xs sm:text-sm uppercase tracking-[0.25em] text-[#d4af37] font-mono font-bold">
+            SEMINÁRIO DE PÓS-GRADUAÇÃO
+          </span>
+        </motion.div>
 
-            {/* Big Editorial Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 25, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="text-3xl sm:text-5xl md:text-6xl font-editorial-serif font-bold tracking-tight text-white leading-[1.08]"
-            >
-              Amostragem <br />
-              <span className="italic font-light bg-gradient-to-r from-[#f4f2ec] via-[#d4af37] to-[#e8d8a0] bg-clip-text text-transparent">
-                por Cotas
-              </span>
-            </motion.h1>
+        {/* Big Editorial Headline - Projector Scale */}
+        <motion.h1
+          initial={{ opacity: 0, y: 25, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-editorial-serif font-bold tracking-tight text-white leading-[1.05]"
+        >
+          Amostragem <br />
+          <span className="italic font-light bg-gradient-to-r from-[#f4f2ec] via-[#d4af37] to-[#e8d8a0] bg-clip-text text-transparent">
+            por Cotas
+          </span>
+        </motion.h1>
 
-            {/* Typewriter Subtitle Effect */}
-            <div className="min-h-[2.5rem] mt-3">
-              <p className="text-sm sm:text-base md:text-lg font-light text-white/80 max-w-2xl leading-relaxed font-editorial-sans">
-                <TypewriterText
-                  text="Metodologia Não Probabilística, Procedimentos Técnicos, Margem de Erro Referencial e Aplicações Eleitorais"
-                  speed={20}
-                  delay={350}
-                />
-              </p>
-            </div>
-
-            {/* Quick Context Badges - Staggered Appearance */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-3 flex flex-wrap items-center gap-y-1 gap-x-3 text-xs text-white/50 font-editorial-sans"
-            >
-              <span className="hover:text-white transition-colors">Método Não Probabilístico</span>
-              <span aria-hidden="true" className="text-white/20">·</span>
-              <span className="hover:text-white transition-colors">Matriz Multidimensional</span>
-              <span aria-hidden="true" className="text-white/20">·</span>
-              <span className="hover:text-white transition-colors">Pós-Estratificação</span>
-              <span aria-hidden="true" className="text-white/20">·</span>
-              <span className="hover:text-white transition-colors">Eleições Presidenciais 2026 & Marco TSE</span>
-            </motion.div>
-          </div>
-
-          {/* Right Column: Editorial Visual Card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="hidden lg:block lg:col-span-4"
-          >
-            <div className="relative group rounded-2xl overflow-hidden border border-[#d4af37]/30 bg-black/40 shadow-2xl shadow-black/80">
-              <img
-                src="/src/assets/images/electoral_context_1791898487763.jpg"
-                alt="Contexto de eleições gerais no Brasil com urna eletrônica e eleitores"
-                referrerPolicy="no-referrer"
-                className="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-              <div className="absolute bottom-2.5 left-3 right-3 flex items-end justify-between">
-                <div>
-                  <span className="text-[9px] font-mono uppercase tracking-widest text-[#d4af37] block font-semibold">
-                    Cenário Real · Eleições Brasil
-                  </span>
-                  <p className="text-[11px] text-white font-medium leading-tight mt-0.5">
-                    Pesquisas de Intenção de Voto & Urna Eletrônica
-                  </p>
-                </div>
-                <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#d4af37] shrink-0">
-                  Res. 23.600
-                </span>
-              </div>
-            </div>
-          </motion.div>
+        {/* Typewriter Subtitle Effect - Large & Projector-Clear */}
+        <div className="min-h-[3.5rem] mt-4 sm:mt-6">
+          <p className="text-base sm:text-xl lg:text-2xl font-light text-white/90 max-w-6xl leading-relaxed font-editorial-sans">
+            <TypewriterText
+              text="Metodologia Não Probabilística, Procedimentos Técnicos, Margem de Erro Referencial e Aplicações Eleitorais"
+              speed={20}
+              delay={350}
+            />
+          </p>
         </div>
+
+        {/* Quick Context Badges */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-5 flex flex-wrap items-center gap-y-2 gap-x-5 text-sm sm:text-base text-white/60 font-editorial-sans font-medium"
+        >
+          <span className="text-[#d4af37] font-semibold">Método Não Probabilístico</span>
+          <span aria-hidden="true" className="text-white/30">·</span>
+          <span>Matriz Demográfica Multidimensional</span>
+          <span aria-hidden="true" className="text-white/30">·</span>
+          <span>Pós-Estratificação Algébrica</span>
+          <span aria-hidden="true" className="text-white/30">·</span>
+          <span>Eleições Presidenciais 2026 & Marco TSE</span>
+        </motion.div>
       </div>
 
-      {/* Institutional Credentials Sheet: Appearing from Corners & Bottom */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 pt-4 border-t border-white/10 items-end">
-        {/* Discipline & Professor - Emerging from Bottom-Left */}
+      {/* Institutional Credentials Sheet */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-5 pt-5 border-t border-white/10 items-end">
+        {/* Discipline & Professor */}
         <motion.div
           initial={{ opacity: 0, x: -30, y: 20 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35, ease: 'easeOut' }}
-          whileHover={{ scale: 1.01, y: -2 }}
-          className="md:col-span-5 space-y-2 p-3 bg-white/[0.02] border border-white/5 rounded-xl transition-all"
+          className="md:col-span-5 space-y-3 p-4 bg-white/[0.03] border border-white/10 rounded-xl"
         >
-          <div className="flex items-start gap-2.5">
-            <BookOpen className="w-3.5 h-3.5 text-[#d4af37] mt-0.5 shrink-0" />
+          <div className="flex items-start gap-3">
+            <BookOpen className="w-5 h-5 text-[#d4af37] mt-0.5 shrink-0" />
             <div>
-              <span className="text-[10px] uppercase tracking-wider text-white/40 block">Disciplina</span>
-              <p className="text-xs sm:text-sm font-semibold text-white/90">
+              <span className="text-xs uppercase tracking-wider text-white/50 block font-mono">Disciplina</span>
+              <p className="text-sm sm:text-base font-bold text-white">
                 SISTEMAS DE AMOSTRAGEM EM LEVANTAMENTOS AGRÍCOLAS
               </p>
             </div>
           </div>
 
-          <div className="flex items-start gap-2.5">
-            <GraduationCap className="w-3.5 h-3.5 text-[#d4af37] mt-0.5 shrink-0" />
+          <div className="flex items-start gap-3">
+            <GraduationCap className="w-5 h-5 text-[#d4af37] mt-0.5 shrink-0" />
             <div>
-              <span className="text-[10px] uppercase tracking-wider text-white/40 block">Docente Responsável</span>
-              <p className="text-xs sm:text-sm font-semibold text-white/90">
+              <span className="text-xs uppercase tracking-wider text-white/50 block font-mono">Docente Responsável</span>
+              <p className="text-sm sm:text-base font-bold text-white">
                 PROF. DR. JOSE ANTONIO ALEIXO DA SILVA
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* Student & Contact - Emerging from Bottom Center */}
+        {/* Student & Contact */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.45, ease: 'easeOut' }}
-          whileHover={{ scale: 1.01, y: -2 }}
-          className="md:col-span-4 space-y-2 p-3 bg-white/[0.02] border border-white/5 rounded-xl transition-all"
+          className="md:col-span-4 space-y-3 p-4 bg-white/[0.03] border border-white/10 rounded-xl"
         >
-          <div className="flex items-start gap-2.5">
-            <User className="w-3.5 h-3.5 text-[#d4af37] mt-0.5 shrink-0" />
+          <div className="flex items-start gap-3">
+            <User className="w-5 h-5 text-[#d4af37] mt-0.5 shrink-0" />
             <div>
-              <span className="text-[10px] uppercase tracking-wider text-white/40 block">Discente / Autor</span>
-              <p className="text-xs sm:text-sm font-semibold text-white/90">
+              <span className="text-xs uppercase tracking-wider text-white/50 block font-mono">Discente / Autor</span>
+              <p className="text-sm sm:text-base font-bold text-white">
                 Gerson Rodrigues Santos
               </p>
-              <span className="text-[11px] text-white/50 block">Doutorando em Biometria e Estatística Aplicada</span>
+              <span className="text-xs sm:text-sm text-white/60 block mt-0.5">Doutorando em Biometria e Estatística Aplicada</span>
             </div>
           </div>
 
-          <div className="flex items-start gap-2.5">
-            <Mail className="w-3.5 h-3.5 text-[#d4af37] mt-0.5 shrink-0" />
+          <div className="flex items-start gap-3">
+            <Mail className="w-5 h-5 text-[#d4af37] mt-0.5 shrink-0" />
             <div>
-              <span className="text-[10px] uppercase tracking-wider text-white/40 block">Contato Acadêmico</span>
+              <span className="text-xs uppercase tracking-wider text-white/50 block font-mono">Contato Acadêmico</span>
               <a
                 href="mailto:gersonrodriguessantos8@gmail.com"
-                className="text-xs text-[#d4af37] hover:underline"
+                className="text-xs sm:text-sm text-[#d4af37] hover:underline font-mono"
               >
                 gersonrodriguessantos8@gmail.com
               </a>
@@ -204,7 +167,7 @@ export const SlideCover: React.FC<SlideCoverProps> = ({ onStart }) => {
           </div>
         </motion.div>
 
-        {/* Interactive CTA - Emerging from Bottom-Right with gentle pulse */}
+        {/* Interactive CTA */}
         <motion.div
           initial={{ opacity: 0, x: 30, y: 20 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
@@ -212,19 +175,19 @@ export const SlideCover: React.FC<SlideCoverProps> = ({ onStart }) => {
           className="md:col-span-3 flex flex-col items-start md:items-end justify-center"
         >
           <motion.button
-            whileHover={{ scale: 1.04, rotate: 0.5 }}
+            whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.96 }}
             onClick={() => {
               sound.playSlide();
               onStart();
             }}
-            className="group relative inline-flex items-center gap-2.5 px-5 py-2.5 bg-gradient-to-r from-[#d4af37] via-[#ecd898] to-[#b89528] text-black font-semibold text-xs rounded-lg hover:shadow-xl hover:shadow-[#d4af37]/25 transition-all cursor-pointer"
+            className="group relative inline-flex items-center gap-3 px-6 py-3.5 bg-gradient-to-r from-[#d4af37] via-[#ecd898] to-[#b89528] text-black font-bold text-sm sm:text-base rounded-xl hover:shadow-2xl hover:shadow-[#d4af37]/30 transition-all cursor-pointer"
           >
             <span>Iniciar Apresentação</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
           </motion.button>
-          <span className="text-[10px] text-white/40 mt-1.5 font-mono">
-            Navegue pelas setas ou teclado
+          <span className="text-xs text-white/50 mt-2 font-mono">
+            Apresentador: use as setas do controle
           </span>
         </motion.div>
       </div>

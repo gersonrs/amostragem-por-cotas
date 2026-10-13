@@ -192,38 +192,38 @@ export const SlideRoadmap: React.FC<SlideRoadmapProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-6 py-2 sm:py-3 space-y-3.5">
+    <div className="w-full max-w-[1750px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 py-3 lg:py-6 space-y-4 min-h-[calc(100vh-8.5rem)] flex flex-col justify-between">
       {/* Editorial Header */}
       <motion.div
         initial={{ opacity: 0, y: -15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="border-b border-white/10 pb-2.5 flex flex-col sm:flex-row sm:items-end justify-between gap-2"
+        className="border-b border-white/10 pb-3 flex flex-col sm:flex-row sm:items-end justify-between gap-3"
       >
         <div>
-          <div className="flex items-center gap-2 text-[11px] font-mono text-[#d4af37] uppercase tracking-[0.2em]">
-            <Compass className="w-3.5 h-3.5 text-[#d4af37]" />
+          <div className="flex items-center gap-2 text-xs sm:text-sm font-mono text-[#d4af37] uppercase tracking-[0.2em] font-semibold">
+            <Compass className="w-4 h-4 text-[#d4af37]" />
             <span>Roteiro Metodológico</span>
             <span className="text-white/20">/</span>
             <span>Seminário UFRPE</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-editorial-serif font-bold text-white mt-1">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-editorial-serif font-bold text-white mt-1.5">
             <TypewriterText text="Sumário Executivo & Roadmap" speed={24} delay={100} />
           </h2>
         </div>
-        <div className="flex items-center gap-3 text-xs font-mono text-white/50">
-          <span className="inline-flex items-center gap-1.5 bg-white/[0.04] px-2.5 py-1 rounded border border-white/10">
-            <Clock className="w-3 h-3 text-[#d4af37]" />
+        <div className="flex items-center gap-3 text-xs sm:text-sm font-mono text-white/60">
+          <span className="inline-flex items-center gap-2 bg-white/[0.04] px-3 py-1.5 rounded-lg border border-white/10 font-medium">
+            <Clock className="w-4 h-4 text-[#d4af37]" />
             ~50 min estimados
           </span>
-          <span className="bg-[#d4af37]/10 text-[#d4af37] px-2 py-1 rounded border border-[#d4af37]/30">
-            16 Slides Sequenciais
+          <span className="bg-[#d4af37]/15 text-[#d4af37] px-3 py-1.5 rounded-lg border border-[#d4af37]/30 font-bold">
+            17 Slides Sequenciais
           </span>
         </div>
       </motion.div>
 
-      {/* Main Roadmap Cards Grid (5 Modules Layout tailored to fit screen comfortably) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      {/* Main Roadmap Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 flex-1 items-stretch">
         {modules.slice(0, 3).map((mod, idx) => (
           <motion.div
             key={mod.id}
