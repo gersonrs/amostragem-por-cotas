@@ -1,6 +1,6 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { Table, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { AnimatedNumber } from './AnimatedNumber';
 import { MathView } from './MathView';
 import { TypewriterText } from './TypewriterText';
 
@@ -57,62 +57,62 @@ export const SlideStepByStepMatrix: React.FC = () => {
             <tr className="hover:bg-white/[0.04] transition-colors">
               <td className="py-3 px-5 font-bold text-white text-lg">1</td>
               <td className="py-3 px-5 font-sans text-purple-200 font-semibold text-lg">Mulher, 16 a 34 anos</td>
-              <td className="py-3 px-5 font-bold">24,0%</td>
+              <td className="py-3 px-5 font-bold"><AnimatedNumber value={24.0} decimals={1} duration={1} format={(v) => `${v.toFixed(1)}%`} /></td>
               <td className="py-3 px-5 text-white/60">1.000 × 0,240</td>
-              <td className="py-3 px-5 text-white font-bold text-xl">240</td>
+              <td className="py-3 px-5 text-white font-bold text-xl"><AnimatedNumber value={240} duration={1} delay={0.1} /></td>
             </tr>
             <tr className="hover:bg-white/[0.04] transition-colors">
               <td className="py-3 px-5 font-bold text-white text-lg">2</td>
               <td className="py-3 px-5 font-sans text-purple-200 font-semibold text-lg">Mulher, 35 a 59 anos</td>
-              <td className="py-3 px-5 font-bold">20,5%</td>
+              <td className="py-3 px-5 font-bold"><AnimatedNumber value={20.5} decimals={1} duration={1} format={(v) => `${v.toFixed(1)}%`} /></td>
               <td className="py-3 px-5 text-white/60">1.000 × 0,205</td>
-              <td className="py-3 px-5 text-white font-bold text-xl">205</td>
+              <td className="py-3 px-5 text-white font-bold text-xl"><AnimatedNumber value={205} duration={1} delay={0.15} /></td>
             </tr>
             <tr className="hover:bg-white/[0.04] transition-colors">
               <td className="py-3 px-5 font-bold text-white text-lg">3</td>
               <td className="py-3 px-5 font-sans text-purple-200 font-semibold text-lg">Mulher, 60 anos ou mais</td>
-              <td className="py-3 px-5 font-bold">8,0%</td>
+              <td className="py-3 px-5 font-bold"><AnimatedNumber value={8.0} decimals={1} duration={1} format={(v) => `${v.toFixed(1)}%`} /></td>
               <td className="py-3 px-5 text-white/60">1.000 × 0,080</td>
-              <td className="py-3 px-5 text-white font-bold text-xl">80</td>
+              <td className="py-3 px-5 text-white font-bold text-xl"><AnimatedNumber value={80} duration={1} delay={0.2} /></td>
             </tr>
             <tr className="bg-purple-950/40 font-bold border-y-2 border-purple-500/50 text-purple-200 text-base sm:text-lg">
               <td className="py-3.5 px-5" colSpan={2}>Subtotal Feminino</td>
-              <td className="py-3.5 px-5 text-xl font-bold">52,5%</td>
+              <td className="py-3.5 px-5 text-xl font-bold"><AnimatedNumber value={52.5} decimals={1} duration={1} delay={0.25} format={(v) => `${v.toFixed(1)}%`} /></td>
               <td className="py-3.5 px-5 text-white/50">---</td>
-              <td className="py-3.5 px-5 text-[#d4af37] text-xl font-bold">525 entrevistas</td>
+              <td className="py-3.5 px-5 text-[#d4af37] text-xl font-bold"><AnimatedNumber value={525} duration={1} delay={0.3} format={(v) => `${Math.round(v)} entrevistas`} /></td>
             </tr>
             <tr className="hover:bg-white/[0.04] transition-colors">
               <td className="py-3 px-5 font-bold text-white text-lg">4</td>
               <td className="py-3 px-5 font-sans text-blue-200 font-semibold text-lg">Homem, 16 a 34 anos</td>
-              <td className="py-3 px-5 font-bold">22,0%</td>
+              <td className="py-3 px-5 font-bold"><AnimatedNumber value={22.0} decimals={1} duration={1} format={(v) => `${v.toFixed(1)}%`} /></td>
               <td className="py-3 px-5 text-white/60">1.000 × 0,220</td>
-              <td className="py-3 px-5 text-white font-bold text-xl">220</td>
+              <td className="py-3 px-5 text-white font-bold text-xl"><AnimatedNumber value={220} duration={1} delay={0.1} /></td>
             </tr>
             <tr className="hover:bg-white/[0.04] transition-colors">
               <td className="py-3 px-5 font-bold text-white text-lg">5</td>
               <td className="py-3 px-5 font-sans text-blue-200 font-semibold text-lg">Homem, 35 a 59 anos</td>
-              <td className="py-3 px-5 font-bold">18,5%</td>
+              <td className="py-3 px-5 font-bold"><AnimatedNumber value={18.5} decimals={1} duration={1} format={(v) => `${v.toFixed(1)}%`} /></td>
               <td className="py-3 px-5 text-white/60">1.000 × 0,185</td>
-              <td className="py-3 px-5 text-white font-bold text-xl">185</td>
+              <td className="py-3 px-5 text-white font-bold text-xl"><AnimatedNumber value={185} duration={1} delay={0.15} /></td>
             </tr>
             <tr className="hover:bg-white/[0.04] transition-colors">
               <td className="py-3 px-5 font-bold text-white text-lg">6</td>
               <td className="py-3 px-5 font-sans text-blue-200 font-semibold text-lg">Homem, 60 anos ou mais</td>
-              <td className="py-3 px-5 font-bold">7,0%</td>
+              <td className="py-3 px-5 font-bold"><AnimatedNumber value={7.0} decimals={1} duration={1} format={(v) => `${v.toFixed(1)}%`} /></td>
               <td className="py-3 px-5 text-white/60">1.000 × 0,070</td>
-              <td className="py-3 px-5 text-white font-bold text-xl">70</td>
+              <td className="py-3 px-5 text-white font-bold text-xl"><AnimatedNumber value={70} duration={1} delay={0.2} /></td>
             </tr>
             <tr className="bg-blue-950/40 font-bold border-y-2 border-blue-500/50 text-blue-200 text-base sm:text-lg">
               <td className="py-3.5 px-5" colSpan={2}>Subtotal Masculino</td>
-              <td className="py-3.5 px-5 text-xl font-bold">47,5%</td>
+              <td className="py-3.5 px-5 text-xl font-bold"><AnimatedNumber value={47.5} decimals={1} duration={1} delay={0.25} format={(v) => `${v.toFixed(1)}%`} /></td>
               <td className="py-3.5 px-5 text-white/50">---</td>
-              <td className="py-3.5 px-5 text-[#d4af37] text-xl font-bold">475 entrevistas</td>
+              <td className="py-3.5 px-5 text-[#d4af37] text-xl font-bold"><AnimatedNumber value={475} duration={1} delay={0.3} format={(v) => `${Math.round(v)} entrevistas`} /></td>
             </tr>
             <tr className="bg-[#15171c] font-bold text-white text-lg sm:text-xl border-t-2 border-white/30">
               <td className="py-4 px-5" colSpan={2}>Total Geral Amostral (n)</td>
-              <td className="py-4 px-5 text-2xl font-bold text-emerald-400">100,0%</td>
+              <td className="py-4 px-5 text-2xl font-bold text-emerald-400"><AnimatedNumber value={100.0} decimals={1} duration={1} delay={0.35} format={(v) => `${v.toFixed(1)}%`} /></td>
               <td className="py-4 px-5 text-white/50">---</td>
-              <td className="py-4 px-5 text-[#d4af37] font-mono text-2xl font-bold">1.000 (100%)</td>
+              <td className="py-4 px-5 text-[#d4af37] font-mono text-2xl font-bold"><AnimatedNumber value={1000} duration={1.2} delay={0.4} format={(v) => `${Math.round(v)} (100%)`} /></td>
             </tr>
           </tbody>
         </table>
@@ -120,18 +120,33 @@ export const SlideStepByStepMatrix: React.FC = () => {
 
       {/* Summary Badges for Projector View */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
-        <div className="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-between"
+        >
           <span className="text-sm font-semibold text-purple-200">Maioria do Eleitorado:</span>
-          <span className="text-lg font-mono font-bold text-purple-300">Mulheres 52,5%</span>
-        </div>
-        <div className="p-3.5 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-between">
+          <span className="text-lg font-mono font-bold text-purple-300"><AnimatedNumber value={52.5} decimals={1} duration={1} format={(v) => `${v.toFixed(1)}%`} /></span>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="p-3.5 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-between"
+        >
           <span className="text-sm font-semibold text-blue-200">Segmento Jovem (16-34):</span>
-          <span className="text-lg font-mono font-bold text-blue-300">460 questionários (46%)</span>
-        </div>
-        <div className="p-3.5 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/30 flex items-center justify-between">
+          <span className="text-lg font-mono font-bold text-blue-300"><AnimatedNumber value={460} duration={1} format={(v) => `${Math.round(v)} questionários (46%)`} /></span>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="p-3.5 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/30 flex items-center justify-between"
+        >
           <span className="text-sm font-semibold text-[#d4af37]">Meta Total Rigorosa:</span>
-          <span className="text-lg font-mono font-bold text-emerald-400">1.000 Entrevistas Válidas</span>
-        </div>
+          <span className="text-lg font-mono font-bold text-emerald-400"><AnimatedNumber value={1000} duration={1.1} format={(v) => `${Math.round(v)} Entrevistas Válidas`} /></span>
+        </motion.div>
       </div>
     </div>
   );

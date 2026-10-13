@@ -1,14 +1,33 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { 
-  Layers, 
-  Target, 
-  Sparkles, 
-  ArrowRight, 
-  PieChart, 
-  ShieldCheck,
+import {
+    ArrowRight,
+    Layers,
+    PieChart,
+    ShieldCheck,
+    Sparkles,
+    Target,
 } from 'lucide-react';
+import { motion } from 'motion/react';
+import React from 'react';
+import { AnimatedNumber } from './AnimatedNumber';
 import { TypewriterText } from './TypewriterText';
+
+// Staggered cascade for the "3 Pilares" list
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.14, delayChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: 24, scale: 0.97 },
+  show: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
+  },
+};
 
 export const SlideWhatIsQuotaSampling: React.FC = () => {
   return (
@@ -99,7 +118,9 @@ export const SlideWhatIsQuotaSampling: React.FC = () => {
             <div className="grid grid-cols-3 gap-3 text-center py-1">
               <div className="bg-white/[0.03] border border-white/10 p-3 rounded-xl">
                 <span className="text-xs font-mono text-white/50 block font-medium">População Real (N)</span>
-                <span className="text-lg sm:text-2xl font-bold text-white block mt-1">156,4 Milhões</span>
+                <span className="text-lg sm:text-2xl font-bold text-white block mt-1">
+                  <AnimatedNumber value={156.4} decimals={1} duration={1.2} delay={0.1} format={(v) => `${v.toFixed(1).replace('.', ',')} Mi`} />
+                </span>
                 <span className="text-xs text-white/60">Eleitorado TSE</span>
               </div>
               <div className="flex flex-col items-center justify-center">
@@ -108,7 +129,11 @@ export const SlideWhatIsQuotaSampling: React.FC = () => {
               </div>
               <div className="bg-[#d4af37]/10 border border-[#d4af37]/30 p-3 rounded-xl">
                 <span className="text-xs font-mono text-[#d4af37] block font-medium">Amostra Final (n)</span>
-                <span className="text-lg sm:text-2xl font-bold text-amber-300 block mt-1">1.000 a 2.000</span>
+                <span className="text-lg sm:text-2xl font-bold text-amber-300 block mt-1">
+                  <AnimatedNumber value={1000} duration={1.2} delay={0.2} format={(v) => Math.round(v).toLocaleString('pt-BR')} />
+                  <span className="text-base"> a </span>
+                  <AnimatedNumber value={2000} duration={1.2} delay={0.3} format={(v) => Math.round(v).toLocaleString('pt-BR')} />
+                </span>
                 <span className="text-xs text-white/60">Microcosmo Fiel</span>
               </div>
             </div>
@@ -141,8 +166,13 @@ export const SlideWhatIsQuotaSampling: React.FC = () => {
               </div>
 
               {/* 3 Pilares do Método - Grandes & Legíveis */}
-              <div className="space-y-3.5">
-                <div className="p-3.5 sm:p-4 rounded-xl border border-white/10 bg-white/[0.02] space-y-1.5">
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+                className="space-y-3.5"
+              >
+                <motion.div variants={itemVariants} whileHover={{ scale: 1.015, y: -2, transition: { duration: 0.18 } }} className="p-3.5 sm:p-4 rounded-xl border border-white/10 bg-white/[0.02] space-y-1.5 hover:border-amber-400/40 hover:bg-amber-500/[0.04] transition-colors">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <span className="text-sm font-mono font-bold text-amber-400">01.</span>
@@ -155,9 +185,9 @@ export const SlideWhatIsQuotaSampling: React.FC = () => {
                   <p className="text-sm sm:text-base text-white/80 font-light pl-6 leading-relaxed">
                     Não exige sorteio nem cadastro individual da população. A seleção é orientada exclusivamente pelo preenchimento das variáveis da cota.
                   </p>
-                </div>
+                </motion.div>
 
-                <div className="p-3.5 sm:p-4 rounded-xl border border-white/10 bg-white/[0.02] space-y-1.5">
+                <motion.div variants={itemVariants} whileHover={{ scale: 1.015, y: -2, transition: { duration: 0.18 } }} className="p-3.5 sm:p-4 rounded-xl border border-white/10 bg-white/[0.02] space-y-1.5 hover:border-sky-400/40 hover:bg-sky-500/[0.04] transition-colors">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <span className="text-sm font-mono font-bold text-sky-400">02.</span>
@@ -168,11 +198,11 @@ export const SlideWhatIsQuotaSampling: React.FC = () => {
                     </span>
                   </div>
                   <p className="text-sm sm:text-base text-white/80 font-light pl-6 leading-relaxed">
-                    Entrevistadores aplicam perguntas de triagem rápidas (sexo, idade, escolaridade) em locais de grande circulação para verificar a elegibilidade.
+                    Entrevistadores aplicam perguntas de triagem rápidas (sexo, idade, escolaridade) em locais de grande circulação para verificar a eligibilidade.
                   </p>
-                </div>
+                </motion.div>
 
-                <div className="p-3.5 sm:p-4 rounded-xl border border-white/10 bg-white/[0.02] space-y-1.5">
+                <motion.div variants={itemVariants} whileHover={{ scale: 1.015, y: -2, transition: { duration: 0.18 } }} className="p-3.5 sm:p-4 rounded-xl border border-white/10 bg-white/[0.02] space-y-1.5 hover:border-emerald-400/40 hover:bg-emerald-500/[0.04] transition-colors">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <span className="text-sm font-mono font-bold text-emerald-400">03.</span>
@@ -185,8 +215,8 @@ export const SlideWhatIsQuotaSampling: React.FC = () => {
                   <p className="text-sm sm:text-base text-white/80 font-light pl-6 leading-relaxed">
                     Viabiliza pesquisas eleitorais e de conjuntura em tempo recorde com custo drasticamente menor que visitas domiciliares probabilísticas.
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
 
             {/* Bottom Callout */}

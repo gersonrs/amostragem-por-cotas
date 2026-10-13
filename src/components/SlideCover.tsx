@@ -1,8 +1,8 @@
-import React from 'react';
+import { ArrowRight, BookOpen, Building2, GraduationCap, Mail, Sparkles, User } from 'lucide-react';
 import { motion } from 'motion/react';
-import { ArrowRight, GraduationCap, Mail, User, BookOpen, Building2, Sparkles } from 'lucide-react';
-import { TypewriterText } from './TypewriterText';
+import React from 'react';
 import { sound } from '../utils/audio';
+import { TypewriterText } from './TypewriterText';
 
 interface SlideCoverProps {
   onStart: () => void;
@@ -101,7 +101,7 @@ export const SlideCover: React.FC<SlideCoverProps> = ({ onStart }) => {
           <span aria-hidden="true" className="text-white/30">·</span>
           <span>Pós-Estratificação Algébrica</span>
           <span aria-hidden="true" className="text-white/30">·</span>
-          <span>Eleições Presidenciais 2026 & Marco TSE</span>
+          <span>Estudo de Caso: Eleições 2026</span>
         </motion.div>
       </div>
 

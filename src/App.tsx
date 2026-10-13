@@ -1,25 +1,25 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { SLIDES_CONFIG } from './types/presentation';
+import { AnimatePresence, motion } from 'motion/react';
+import { useCallback, useEffect, useState } from 'react';
 import { NavigationControls } from './components/NavigationControls';
-import { SlideCover } from './components/SlideCover';
-import { SlideRoadmap } from './components/SlideRoadmap';
-import { SlideWhatIsQuotaSampling } from './components/SlideWhatIsQuotaSampling';
-import { SlideOperationalMechanism } from './components/SlideOperationalMechanism';
-import { SlideIntroduction } from './components/SlideIntroduction';
-import { SlideStructureDifference } from './components/SlideStructureDifference';
-import { SlideHistoryApplications } from './components/SlideHistoryApplications';
+import { NeonBackground } from './components/NeonBackground';
 import { SlideAdvantages } from './components/SlideAdvantages';
 import { SlideAlgebraicFormulation } from './components/SlideAlgebraicFormulation';
-import { SlideMarginErrorControversy } from './components/SlideMarginErrorControversy';
-import { SlideStepByStepMatrix } from './components/SlideStepByStepMatrix';
-import { SlideStepByStepDeviation } from './components/SlideStepByStepDeviation';
-import { SlidePracticalExecution } from './components/SlidePracticalExecution';
 import { SlideBiasesBestPractices } from './components/SlideBiasesBestPractices';
+import { SlideConclusion } from './components/SlideConclusion';
+import { SlideCover } from './components/SlideCover';
+import { SlideHistoryApplications } from './components/SlideHistoryApplications';
+import { SlideIntroduction } from './components/SlideIntroduction';
+import { SlideMarginErrorControversy } from './components/SlideMarginErrorControversy';
+import { SlideOperationalMechanism } from './components/SlideOperationalMechanism';
+import { SlideQuestions } from './components/SlideQuestions';
+import { SlideRoadmap } from './components/SlideRoadmap';
+import { SlideStepByStepDeviation } from './components/SlideStepByStepDeviation';
+import { SlideStepByStepMatrix } from './components/SlideStepByStepMatrix';
+import { SlideStructureDifference } from './components/SlideStructureDifference';
+import { SlideThanks } from './components/SlideThanks';
 import { SlideTse2026Case } from './components/SlideTse2026Case';
-import { SlideTseRegulationAnalysis } from './components/SlideTseRegulationAnalysis';
-import { SlideReferences } from './components/SlideReferences';
-import { NeonBackground } from './components/NeonBackground';
+import { SlideWhatIsQuotaSampling } from './components/SlideWhatIsQuotaSampling';
+import { SLIDES_CONFIG } from './types/presentation';
 import { sound } from './utils/audio';
 
 export default function App() {
@@ -112,40 +112,45 @@ export default function App() {
       case 1:
         return <SlideRoadmap onNavigate={(target) => navigateTo(target, 0)} />;
       case 2:
-        return <SlideWhatIsQuotaSampling />;
+        return <SlideIntroduction />;
       case 3:
+        return <SlideHistoryApplications />;
+      case 4:
+        return <SlideWhatIsQuotaSampling />;
+      case 5:
+        return <SlideStructureDifference />;
+      case 6:
+        return <SlideAlgebraicFormulation />;
+      case 7:
+        return <SlideMarginErrorControversy />;
+      case 8:
+        return <SlideStepByStepMatrix />;
+      case 9:
+        return <SlideStepByStepDeviation />;
+      case 10:
         return (
           <SlideOperationalMechanism
             subSlide={currentSubSlide}
             isContinuousMode={isContinuousMode}
           />
         );
-      case 4:
-        return <SlideIntroduction />;
-      case 5:
-        return <SlideStructureDifference />;
-      case 6:
-        return <SlideHistoryApplications />;
-      case 7:
-        return <SlideAdvantages />;
-      case 8:
-        return <SlideAlgebraicFormulation />;
-      case 9:
-        return <SlideMarginErrorControversy />;
-      case 10:
-        return <SlideStepByStepMatrix />;
       case 11:
-        return <SlideStepByStepDeviation />;
+        return <SlideAdvantages />;
       case 12:
-        return <SlidePracticalExecution />;
-      case 13:
         return <SlideBiasesBestPractices />;
+      case 13:
+        return (
+          <SlideTse2026Case
+            subSlide={currentSubSlide}
+            isContinuousMode={isContinuousMode}
+          />
+        );
       case 14:
-        return <SlideTse2026Case />;
+        return <SlideConclusion />;
       case 15:
-        return <SlideTseRegulationAnalysis />;
+        return <SlideQuestions />;
       case 16:
-        return <SlideReferences onRestart={() => navigateTo(0, 0)} />;
+        return <SlideThanks onRestart={() => navigateTo(0, 0)} />;
       default:
         return <SlideCover onStart={() => navigateTo(1, 0)} />;
     }
@@ -157,13 +162,18 @@ export default function App() {
       x: dir > 0 ? 60 : -60,
       opacity: 0,
       scale: 0.99,
+      rotateX: dir > 0 ? 8 : -8,
+      filter: 'blur(6px)',
     }),
     center: {
       x: 0,
       opacity: 1,
       scale: 1,
+      rotateX: 0,
+      filter: 'blur(0px)',
+      transformPerspective: 1200,
       transition: {
-        duration: 0.38,
+        duration: 0.42,
         ease: [0.16, 1, 0.3, 1] as const,
       },
     },
@@ -171,8 +181,11 @@ export default function App() {
       x: dir > 0 ? -60 : 60,
       opacity: 0,
       scale: 0.99,
+      rotateX: dir > 0 ? -8 : 8,
+      filter: 'blur(6px)',
+      transformPerspective: 1200,
       transition: {
-        duration: 0.28,
+        duration: 0.3,
         ease: [0.7, 0, 0.84, 0] as const,
       },
     }),
@@ -206,7 +219,7 @@ export default function App() {
       <main className="relative z-10 flex-1 w-full pt-14 pb-16 overflow-y-auto overflow-x-hidden flex flex-col justify-center">
         {!isContinuousMode ? (
           /* Slide Mode with Motion Bidirectional Transitions */
-          <div className="w-full h-full flex flex-col justify-center">
+          <div className="w-full h-full flex flex-col justify-center [perspective:1400px]">
             <AnimatePresence custom={direction} mode="wait">
               <motion.div
                 key={currentSlide}
@@ -215,7 +228,7 @@ export default function App() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="w-full my-auto"
+                className="w-full my-auto will-change-transform"
               >
                 {renderSlideContent(currentSlide)}
               </motion.div>

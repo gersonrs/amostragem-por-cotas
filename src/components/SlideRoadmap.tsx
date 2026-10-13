@@ -1,25 +1,26 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { 
-  Compass, 
-  BookOpen, 
-  Layers, 
-  History, 
-  Sparkles, 
-  Calculator, 
-  AlertTriangle, 
-  Table, 
-  Percent, 
-  Workflow, 
-  ShieldAlert, 
-  Vote, 
-  Scale, 
-  Award, 
-  ArrowRight,
-  Clock,
-  ChevronRight,
-  Target
+import {
+    ArrowRight,
+    Award,
+    BookOpen,
+    Calculator,
+    ChevronRight,
+    Clock,
+    Compass,
+    HeartHandshake,
+    HelpCircle,
+    History,
+    Layers,
+    Percent,
+    Scale,
+    ShieldAlert,
+    Sparkles,
+    Table,
+    Target,
+    Vote,
+    Workflow
 } from 'lucide-react';
+import { motion } from 'motion/react';
+import React from 'react';
 import { TypewriterText } from './TypewriterText';
 
 interface SlideRoadmapProps {
@@ -47,28 +48,39 @@ export const SlideRoadmap: React.FC<SlideRoadmapProps> = ({ onNavigate }) => {
     {
       id: 'mod-1',
       romanNumeral: 'MÓDULO I',
-      title: 'Contextualização & Estrutura',
-      description: 'Definição, mecanismo operacional, o desafio em larga escala, cotas vs. estratificada e histórico',
+      title: 'Contexto & Motivação',
+      description: 'O desafio amostral em larga escala e a trajetória histórica do método',
       color: 'text-[#d4af37]',
       borderColor: 'border-[#d4af37]/30',
       accentBg: 'bg-[#d4af37]/10',
       topics: [
         {
-          title: 'O que é Amostragem por Cotas? (Definição & Microcosmo)',
+          title: 'O Desafio Amostral & Os 2 Paradigmas',
           slideIndex: 2,
-          icon: <Target className="w-3.5 h-3.5 text-[#d4af37]" />,
+          icon: <BookOpen className="w-3.5 h-3.5 text-blue-400" />,
           tag: 'Slide 03',
         },
         {
-          title: 'Mecanismo Operacional da Coleta (Ciclo em 4 Etapas)',
+          title: 'Contexto Histórico & Multidisciplinar',
           slideIndex: 3,
-          icon: <Workflow className="w-3.5 h-3.5 text-emerald-400" />,
+          icon: <History className="w-3.5 h-3.5 text-amber-400" />,
           tag: 'Slide 04',
         },
+      ],
+    },
+    {
+      id: 'mod-2',
+      romanNumeral: 'MÓDULO II',
+      title: 'Conceito & Estrutura',
+      description: 'Definição operacional, microcosmo demográfico e a diferença em relação à estratificada',
+      color: 'text-emerald-400',
+      borderColor: 'border-emerald-500/30',
+      accentBg: 'bg-emerald-500/10',
+      topics: [
         {
-          title: 'O Desafio Amostral & Os 2 Paradigmas',
+          title: 'O que é Amostragem por Cotas? (Definição & Microcosmo)',
           slideIndex: 4,
-          icon: <BookOpen className="w-3.5 h-3.5 text-blue-400" />,
+          icon: <Target className="w-3.5 h-3.5 text-[#d4af37]" />,
           tag: 'Slide 05',
         },
         {
@@ -77,114 +89,103 @@ export const SlideRoadmap: React.FC<SlideRoadmapProps> = ({ onNavigate }) => {
           icon: <Layers className="w-3.5 h-3.5 text-indigo-400" />,
           tag: 'Slide 06',
         },
-        {
-          title: 'Contexto Histórico & Multidisciplinar',
-          slideIndex: 6,
-          icon: <History className="w-3.5 h-3.5 text-amber-400" />,
-          tag: 'Slide 07',
-        },
-        {
-          title: 'Vantagens Pragmáticas do Método',
-          slideIndex: 7,
-          icon: <Sparkles className="w-3.5 h-3.5 text-yellow-400" />,
-          tag: 'Slide 08',
-        },
       ],
     },
     {
-      id: 'mod-2',
-      romanNumeral: 'MÓDULO II',
-      title: 'Modelagem Matemática & Margem',
-      description: 'Partição populacional, estimadores e caráter referencial da margem',
+      id: 'mod-3',
+      romanNumeral: 'MÓDULO III',
+      title: 'Modelagem Matemática',
+      description: 'Partição populacional, estimadores e o caráter referencial da margem de erro',
       color: 'text-indigo-400',
       borderColor: 'border-indigo-500/30',
       accentBg: 'bg-indigo-500/10',
       topics: [
         {
           title: 'Procedimentos Técnicos & Proporções (Wh, nh)',
-          slideIndex: 8,
+          slideIndex: 6,
           icon: <Calculator className="w-3.5 h-3.5 text-indigo-400" />,
-          tag: 'Slide 09',
+          tag: 'Slide 07',
         },
         {
-          title: 'Cálculo da Margem de Erro & Caráter Referencial',
-          slideIndex: 9,
+          title: 'Margem de Erro & Caráter Referencial',
+          slideIndex: 7,
           icon: <Scale className="w-3.5 h-3.5 text-indigo-400" />,
-          tag: 'Slide 10',
-        },
-      ],
-    },
-    {
-      id: 'mod-3',
-      romanNumeral: 'MÓDULO III',
-      title: 'Exemplo Numérico Passo a Passo',
-      description: 'Aplicação com n = 1.000, matriz demográfica e pós-estratificação',
-      color: 'text-emerald-400',
-      borderColor: 'border-emerald-500/30',
-      accentBg: 'bg-emerald-500/10',
-      topics: [
-        {
-          title: 'Matriz Paramétrica Planejada (n = 1.000)',
-          slideIndex: 10,
-          icon: <Table className="w-3.5 h-3.5 text-emerald-400" />,
-          tag: 'Slide 11',
-        },
-        {
-          title: 'Desvios de Campo, Ponderação (fh) & Margem Nominal',
-          slideIndex: 11,
-          icon: <Percent className="w-3.5 h-3.5 text-teal-400" />,
-          tag: 'Slide 12',
+          tag: 'Slide 08',
         },
       ],
     },
     {
       id: 'mod-4',
       romanNumeral: 'MÓDULO IV',
-      title: 'Operação de Campo & Vieses',
-      description: 'As 4 etapas da Appinio, fontes de viés e controle de qualidade',
+      title: 'Exemplo, Operação & Riscos',
+      description: 'Aplicação com n = 1.000, as 4 etapas de coleta, vantagens e vieses de campo',
       color: 'text-orange-400',
       borderColor: 'border-orange-500/30',
       accentBg: 'bg-orange-500/10',
       topics: [
         {
-          title: 'Como Realizar na Prática: As 4 Etapas',
-          slideIndex: 12,
+          title: 'Matriz Paramétrica Planejada (n = 1.000)',
+          slideIndex: 8,
+          icon: <Table className="w-3.5 h-3.5 text-emerald-400" />,
+          tag: 'Slide 09',
+        },
+        {
+          title: 'Desvios de Campo & Pós-Estratificação (fh)',
+          slideIndex: 9,
+          icon: <Percent className="w-3.5 h-3.5 text-teal-400" />,
+          tag: 'Slide 10',
+        },
+        {
+          title: 'Mecanismo Operacional: As 4 Etapas',
+          slideIndex: 10,
           icon: <Workflow className="w-3.5 h-3.5 text-orange-400" />,
-          tag: 'Slide 13',
+          tag: 'Slide 11',
+        },
+        {
+          title: 'Vantagens Pragmáticas do Método',
+          slideIndex: 11,
+          icon: <Sparkles className="w-3.5 h-3.5 text-yellow-400" />,
+          tag: 'Slide 12',
         },
         {
           title: 'Limitações, Vieses & Melhores Práticas',
-          slideIndex: 13,
+          slideIndex: 12,
           icon: <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />,
-          tag: 'Slide 14',
+          tag: 'Slide 13',
         },
       ],
     },
     {
       id: 'mod-5',
       romanNumeral: 'MÓDULO V',
-      title: 'Cenário TSE 2026 & Conclusão',
-      description: 'Pesquisas eleitorais 2026, Resolução TSE 23.600 e referências ABNT',
+      title: 'Aplicação Real & Fechamento',
+      description: 'Estudo de caso eleitoral, conclusão, dúvidas e referências ABNT',
       color: 'text-sky-400',
       borderColor: 'border-sky-500/30',
       accentBg: 'bg-sky-500/10',
       topics: [
         {
-          title: 'Cenário Presidencial 2026: 5 Institutos',
-          slideIndex: 14,
+          title: 'Aplicação Real: Cenário Presidencial 2026',
+          slideIndex: 13,
           icon: <Vote className="w-3.5 h-3.5 text-sky-400" />,
+          tag: 'Slide 14',
+        },
+        {
+          title: 'Conclusão: Síntese do Seminário',
+          slideIndex: 14,
+          icon: <Award className="w-3.5 h-3.5 text-[#d4af37]" />,
           tag: 'Slide 15',
         },
         {
-          title: 'Análise Metodológica & Resolução TSE nº 23.600',
+          title: 'Dúvidas & Perguntas',
           slideIndex: 15,
-          icon: <Scale className="w-3.5 h-3.5 text-cyan-400" />,
+          icon: <HelpCircle className="w-3.5 h-3.5 text-amber-400" />,
           tag: 'Slide 16',
         },
         {
-          title: 'Conclusões & Referências ABNT',
+          title: 'Agradecimentos & Referências ABNT',
           slideIndex: 16,
-          icon: <Award className="w-3.5 h-3.5 text-[#d4af37]" />,
+          icon: <HeartHandshake className="w-3.5 h-3.5 text-emerald-400" />,
           tag: 'Slide 17',
         },
       ],
@@ -214,7 +215,7 @@ export const SlideRoadmap: React.FC<SlideRoadmapProps> = ({ onNavigate }) => {
         <div className="flex items-center gap-3 text-xs sm:text-sm font-mono text-white/60">
           <span className="inline-flex items-center gap-2 bg-white/[0.04] px-3 py-1.5 rounded-lg border border-white/10 font-medium">
             <Clock className="w-4 h-4 text-[#d4af37]" />
-            ~50 min estimados
+            ~45 min estimados
           </span>
           <span className="bg-[#d4af37]/15 text-[#d4af37] px-3 py-1.5 rounded-lg border border-[#d4af37]/30 font-bold">
             17 Slides Sequenciais

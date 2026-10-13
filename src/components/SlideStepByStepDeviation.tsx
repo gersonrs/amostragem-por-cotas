@@ -1,6 +1,7 @@
-import React from 'react';
+import { AlertTriangle, Calculator, CheckCircle2, Info } from 'lucide-react';
 import { motion } from 'motion/react';
-import { AlertTriangle, Calculator, CheckCircle2, TrendingUp, Info } from 'lucide-react';
+import React from 'react';
+import { AnimatedNumber } from './AnimatedNumber';
 import { MathView } from './MathView';
 import { TypewriterText } from './TypewriterText';
 
@@ -45,7 +46,10 @@ export const SlideStepByStepDeviation: React.FC = () => {
             </div>
 
             <p className="text-base sm:text-lg text-white/90 leading-relaxed font-light mb-4">
-              Ao fechar o campo, o <strong>Estrato 3 (Mulher, 60+)</strong> atingiu apenas <strong>60 entrevistas</strong> (recusas por mobilidade), e o <strong>Estrato 4 (Homem, 16-34)</strong> fechou em <strong>240 entrevistas</strong>:
+              Ao fechar o campo, o <strong>Estrato 3 (Mulher, 60+)</strong> atingiu apenas{' '}
+              <strong><AnimatedNumber value={60} duration={1} format={(v) => `${Math.round(v)} entrevistas`} /></strong>{' '}
+              (recusas por mobilidade), e o <strong>Estrato 4 (Homem, 16-34)</strong> fechou em{' '}
+              <strong><AnimatedNumber value={240} duration={1} delay={0.1} format={(v) => `${Math.round(v)} entrevistas`} /></strong>:
             </p>
 
             <div className="p-4 sm:p-5 bg-white/[0.03] border border-white/10 rounded-xl space-y-4 font-mono">
@@ -55,6 +59,9 @@ export const SlideStepByStepDeviation: React.FC = () => {
                 </span>
                 <div className="text-base sm:text-lg">
                   <MathView math="f_3 = \frac{W_3}{w_3} = \frac{0,080}{60 / 1.000} = \frac{0,080}{0,060} = \mathbf{1,333}" block />
+                  <span className="text-2xl font-bold text-purple-300 inline-flex items-center gap-1 mt-1">
+                    <AnimatedNumber value={1.333} decimals={3} duration={1.1} delay={0.3} format={(v) => v.toFixed(3).replace('.', ',')} />
+                  </span>
                 </div>
               </div>
 
@@ -64,6 +71,9 @@ export const SlideStepByStepDeviation: React.FC = () => {
                 </span>
                 <div className="text-base sm:text-lg">
                   <MathView math="f_4 = \frac{W_4}{w_4} = \frac{0,220}{240 / 1.000} = \frac{0,220}{0,240} = \mathbf{0,916}" block />
+                  <span className="text-2xl font-bold text-blue-300 inline-flex items-center gap-1 mt-1">
+                    <AnimatedNumber value={0.916} decimals={3} duration={1.1} delay={0.45} format={(v) => v.toFixed(3).replace('.', ',')} />
+                  </span>
                 </div>
               </div>
             </div>
@@ -100,7 +110,8 @@ export const SlideStepByStepDeviation: React.FC = () => {
                 <MathView math="e_{\text{nominal}} = 1{,}96 \cdot \sqrt{\frac{0{,}5 \times 0{,}5}{1.000}} = 1{,}96 \cdot \sqrt{0{,}00025}" block />
               </div>
               <div className="text-2xl sm:text-3xl font-bold text-emerald-400 py-2.5 px-6 bg-emerald-500/15 rounded-xl border border-emerald-500/30 inline-flex items-center justify-center gap-2">
-                <MathView math="e \approx \pm 3{,}10\%" />
+                <span>±</span>
+                <AnimatedNumber value={3.1} decimals={2} duration={1.4} delay={0.4} format={(v) => `${v.toFixed(2).replace('.', ',')}%`} />
               </div>
             </div>
           </div>
