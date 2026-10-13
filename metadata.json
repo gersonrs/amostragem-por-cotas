@@ -1,0 +1,6 @@
+{
+  "name": "Amostragem por Cotas — Seminário UFRPE",
+  "description": "Apresentação dinâmica e interativa sobre Amostragem por Cotas para o Doutorado em Biometria e Estatística Aplicada da UFRPE. Animações, gráficos explicativos, fundamentação algébrica e elementos de gamificação.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
